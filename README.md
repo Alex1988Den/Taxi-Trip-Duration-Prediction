@@ -1,69 +1,159 @@
-# Проект по предсказанию длительности поездки на такси в Нью-Йорке
-
-## Описание
-Этот проект включает в себя создание модели машинного обучения для предсказания длительности поездки на такси в Нью-Йорке. Мы используем несколько методов, включая **линейную регрессию**, **деревья решений**, **случайный лес**, **градиентный бустинг** и **полиномиальные регрессии**, чтобы выбрать лучший подход для данной задачи.
-
-Основная цель проекта — предсказать длительность поездки на такси с помощью анализа данных о поездках в Нью-Йорке. Мы применяем различные методы, включая обработку данных, анализ признаков, выбор гиперпараметров и оценку моделей на основе метрик, таких как **RMSLE** (Root Mean Squared Logarithmic Error) и **MeAE** (Median Absolute Error).
-
-## Структура данных
-Данные для обучения моделей включают:
-- **Длительность поездки** (в секундах)
-- **Координаты начала и конца поездки**
-- **Количество пассажиров**
-- **Время суток и день недели**
-- **Метеорологические данные** (температура, видимость, осадки и т.д.)
-
-## Данные
-- Для проекта используются два набора данных:
-  1. [**Набор данных о поездках на такси в Нью-Йорке**](https://drive.google.com/file/d/1ecWjor7Tn3HP7LEAm5a0B_wrIfdcVGwR/view) — данные о такси, включая координаты, время и другие параметры.
-  2. [**Набор данных о погодных условиях в Нью-Йорке**](https://drive.google.com/file/d/1X_EJEfERiXki0SKtbnCL9JDv49Go14lF/view) — метеорологическая информация для улучшения точности предсказаний.
-
-## Метрики
-Модели оцениваются с использованием следующих метрик:
-- **RMSLE**: корень из среднеквадратичной ошибки логарифмов, используется для оценки точности предсказаний.
-- **MeAE**: медианная абсолютная ошибка, которая позволяет измерить точность модели на валидационной выборке.
-
-## Модели
-В проекте использованы следующие модели:
-- **Линейная регрессия**
-- **Полиномиальная регрессия (2-ой степени)**
-- **Дерево решений**
-- **Случайный лес**
-- **Градиентный бустинг (Gradient Boosting)**
-
-Каждая модель была протестирована на обучающих и валидационных выборках, с целью достижения минимального значения **RMSLE** и **MeAE**.
-
-## Установка и использование
-1. Клонируйте репозиторий:
-   ```bash
-   git clone https://github.com/username/Taxi-Trip-Duration-Prediction.git
-   cd Taxi-Trip-Duration-Prediction
-
-    Установите зависимости:
-
+# 🚕 NYC Taxi Trip Duration Prediction
+ 
+## 📌 Project Overview
+ 
+This project focuses on building machine learning models to predict taxi trip duration in New York City based on trip characteristics and weather conditions.
+ 
+Several machine learning approaches were evaluated, including Linear Regression, Decision Trees, Random Forest, Gradient Boosting, and Polynomial Regression, in order to identify the most accurate model.
+ 
+The main objective is to predict trip duration through data analysis, feature engineering, hyperparameter optimization, and model evaluation using industry-standard regression metrics.
+ 
+---
+ 
+## 🎯 Project Goals
+ 
+- Analyze New York City taxi trip data
+- Perform feature engineering and data preprocessing
+- Integrate weather information into the dataset
+- Train and compare multiple regression models
+- Evaluate model performance using appropriate metrics
+- Select the best-performing model
+ 
+---
+ 
+## 📊 Dataset
+ 
+The project uses two datasets:
+ 
+### NYC Taxi Trips Dataset
+ 
+Contains:
+ 
+- Trip duration
+- Pickup coordinates
+- Dropoff coordinates
+- Passenger count
+- Date and time information
+ 
+### NYC Weather Dataset
+ 
+Contains:
+ 
+- Temperature
+- Visibility
+- Precipitation
+- Weather conditions
+- Additional meteorological features
+ 
+---
+ 
+## 📂 Features Used
+ 
+- Pickup and dropoff locations
+- Passenger count
+- Time of day
+- Day of week
+- Weather conditions
+- Engineered distance-based features
+- Temporal features
+ 
+---
+ 
+## 📈 Evaluation Metrics
+ 
+Model performance was assessed using:
+ 
+### RMSLE
+ 
+**Root Mean Squared Logarithmic Error**
+ 
+Measures prediction accuracy while reducing the impact of large outliers.
+ 
+### MedAE
+ 
+**Median Absolute Error**
+ 
+Measures the median absolute difference between predicted and actual values.
+ 
+---
+ 
+## 🤖 Machine Learning Models
+ 
+The following models were trained and evaluated:
+ 
+- Linear Regression
+- Polynomial Regression (2nd Degree)
+- Decision Tree Regressor
+- Random Forest Regressor
+- Gradient Boosting Regressor
+ 
+Each model was evaluated on training and validation datasets to achieve the lowest possible RMSLE and MedAE scores.
+ 
+---
+ 
+## 🛠 Technologies
+ 
+- Python
+- Pandas
+- NumPy
+- Scikit-Learn
+- Matplotlib
+- Seaborn
+- Plotly
+- Jupyter Notebook
+ 
+---
+ 
+## 🚀 Installation
+ 
+Clone the repository:
+ 
+```bash
+git clone https://github.com/Alex1988Den/Taxi-Trip-Duration-Prediction.git
+cd Taxi-Trip-Duration-Prediction
+```
+ 
+Install dependencies:
+ 
+```bash
 pip install -r requirements.txt
-
-Запустите Jupyter Notebook или выполните скрипты:
-
-    jupyter notebook
-
-Примечания
-
-    Для ускорения обучения моделей был использован GPU в случае с XGBoost и LightGBM.
-
-    Для каждой модели проводился тщательный отбор гиперпараметров, что позволило добиться оптимальных результатов.
-
-    Важно, что в данном проекте используется логарифмированная версия целевой переменной, что улучшает стабильность модели при предсказаниях с большими значениями.
-
-Контакты
-
-Для вопросов или предложений, пожалуйста, свяжитесь со мной по [aleksandr.denissov@brave.ee].
-
-
-### Пояснение:
-- **Описание**: Включает описание цели проекта, используемых данных и подходов.
-- **Данные**: Ссылки на файлы, которые используются в проекте.
-- **Метрики**: Описание метрик для оценки моделей.
-- **Модели**: Перечисление использованных моделей.
-- **Установка и использование**: Инструкции по запуску проекта.
-- **Контакты**: Секция для связи с вами или вашими коллегами.
+```
+ 
+Launch Jupyter Notebook:
+ 
+```bash
+jupyter notebook
+```
+ 
+---
+ 
+## 📊 Key Techniques
+ 
+- Exploratory Data Analysis (EDA)
+- Data Cleaning
+- Feature Engineering
+- Hyperparameter Tuning
+- Regression Modeling
+- Model Evaluation
+- Weather Data Integration
+ 
+---
+ 
+## 💡 Notes
+ 
+- Weather information was incorporated to improve prediction accuracy.
+- Hyperparameter optimization was performed for several models.
+- Log-transformed target variables were used to improve prediction stability.
+- Multiple regression algorithms were compared to identify the best-performing solution.
+ 
+---
+ 
+## 👨‍💻 Author
+ 
+Developed by **Aleksandr Denissov**
+ 
+📧 Email: aleksandr.denissov@brave.ee
+ 
+---
+ 
+⭐ If you find this project useful, feel free to leave a star on GitHub.
